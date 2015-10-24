@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="ja">
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sample App - todo -</title>
+  <link rel="stylesheet" th:href="@{/css/todomvc.css}" />
+</head>
+
+<body>
+
+<div id="wrapper">
+
+  <div id="page-wrapper">
+
+    <div class="container-fluid">
+
+      <div th:if="${infoMessage}" class="row">
+        <div class="col-lg-12">
+          <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-info-circle"></i> <span th:text="${infoMessage}" />
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+      <div id="root">
+      </div>
+      <script th:unless="${isDevEnv}" th:src="@{/js/bundle.js}" src="/static/bundle.js"></script>
+      <script th:if="${isDevEnv}" src="http://localhost:3001/static/bundle.js"></script>
+
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+</body>
+</html>
